@@ -1,0 +1,128 @@
+<!--pages/state/longPag/longPag.wxml-->
+ <import src="../../wxParse/wxParse.wxml"/>  
+<!-- <view><template is="wxParse" data="{{wxParseData:content.nodes}}" /></view> -->
+<!-- <view class="head_wrap">
+    <view class="headpic_wrap">
+        <image src="../img/1.png" class="headpic"></image>
+        <view style="display:flex">
+          <image src="../../../pages/img/1.png" class="brand"></image>
+          <view class="farm">果果</view>
+        </view>
+    </view>
+    <view>></view>
+</view> -->
+<block wx:if="{{productInfo}}">
+<view class="head_wrap" bindtap='jumpProduct'> 
+  <view class="head_pic">
+      <!-- <view > -->
+         <image src="{{longPageData.headpic}}" class="head_img"></image>
+      <!-- </view> -->
+      <view class="brand">
+        <image src="../../../pages/img/guanzhu_pinpai_ico.png"></image>
+        <!-- <view class="farm_name">过高</view> -->
+        <view class="farm_name">{{longPageData.fname}}</view>
+      </view>
+  </view> 
+ <view class="jump"><image src="../../../pages/img/web_wode_ico_next.png"></image></view>
+</view>
+<view class="psg_wrap">
+   
+
+     <!--品牌头  -->
+      <!-- <view style="display:flex">
+          <view class="headpic"><image src="{{longPageData.headpic}}"></image></view>
+          <view>{{longPageData.fname}}</view>
+      </view> -->
+      <!--文章标题  -->
+        <view class="psg_title">{{longPageData.article.title}}</view>  
+        <!--产品  -->
+          <block wx:for="{{productInfo}}" wx:key="{{item}}">
+            
+             <view class="product_wrap"  wx:if="{{item.product_info}}" data-id="{{item.product_info[0].id}}" bindtap="product_detail">
+                <view class="product_img"><image src="{{item.product_info[0].image}}" mode='aspectFill'></image></view>
+                <view class="procontent_warp">
+                      <view class="product_content">{{item.product_info[0].name}}</view>
+                      <view class="product_content pro_con">{{item.product_info[0].short_introduce}}</view>
+                      <view class="product_content product_price">{{item.product_info[0].price}}</view>
+                </view>
+            </view>
+            <view class="product_wrap"  wx:if="{{item.link}}" style='display:block'>
+              <view style="font-size:28rpx;">
+               外部链接：{{item.link}}
+              </view>     
+              <view style="font-size:28rpx;marign-top:10rpx;">
+               {{item.caption}}
+              </view>           
+            </view>
+         </block> 
+      <!--作者  -->
+      <!-- <view style="display:flex;" class="author">
+        <view class="author_name">{{longPageData.nickname}}</view>
+        <view>{{longPageData.ctime}}</view>  
+      </view> -->
+      <!--文章描述  -->
+      <view class="psg_detail" wx:if="{{longPageData.article.summary}}">
+          <rich-text>{{longPageData.article.summary}}</rich-text>
+      </view>
+      
+      <!-- <view>{{longPageData.article.summary}}</view> -->
+      <!--文章内容  -->
+      
+      <view>
+          <block wx:for="{{longPageData.article.content}}" wx:key="unique" >
+
+          <!-- {{index}} -->
+              <!-- <view style="padding:0 30rpx" class="content_image" style="margin-top:20rpx;"><rich-text nodes="{{longContent}}" ></rich-text></view> -->
+               <view style="padding:0 30rpx" class="content_image" style="margin-top:20rpx;" class="detail"><template is="wxParse" data="{{wxParseData:article.nodes}}" /></view>  
+<!-- 
+                <view style="padding:0 30rpx" class="content_image" style="margin-top:20rpx;margin-bottom:30rpx;" class="detail" wx:if="{{item.text}}"><template is="wxParse" data="{{wxParseData:articles.nodes}}" /></view> -->
+
+
+                <rich-text nodes="{{item.text}}" wx:if="{{item.text}}"></rich-text>
+             
+        <!--添加判断  -->
+             <!-- <block wx:if="{{item.text}}">
+              <block wx:for="{{replyTemArray}}" wx:key="array">
+              {{index}}
+                  <template is="wxParse" data="{{wxParseData:item}}"/>
+              </block>  
+            </block>  -->
+            
+              <!-- <view>{{item.text}}</view> -->
+              <!-- <block wx:if="{{item.img}}" wx:for="{{item.img}}"><image src="{{item.img}}"></image></block> -->
+              <block wx:if="{{item.video}}"><video src="{{item.video[0].video_url}}" poster="{{item.video[0].cover_url}}"></video></block>
+               <view wx:if="{{item.img}}" wx:for="{{item.img}}"><image src="{{item.img}}"></image></view> 
+              <!-- <view wx:if="{{item.video}}" wx:for="{{item.video}}"><video src="{{item.video_url}}"></video></view> -->
+          </block>
+           <view class="public">{{longPageData.nickname}}   发布于{{longPageData.ctime}}</view> 
+      </view>
+</view>
+
+
+<!-- <view class="zan" bindtap='zan'><image src="../../../pages/img/weidianzan@3x.png"></image></view> -->
+<!--点赞区  -->
+  <block wx:if="{{zan}}"><view class="zan" bindtap='zan'><image src="../../../pages/img/weidianzan.png"></image></view></block> 
+  <block wx:else><view class="zan"><image src="../../../pages/img/yidianzan.png"></image></view></block>    
+<!--底部  -->
+<!--收藏区  -->
+<view class="footer">
+   <view class="words"><input placeholder='说说你的看法'></input></view>
+             <block wx:if="{{isNot}}">
+                <view class="collection" bindtap='collection'>
+                     <image src="../../../pages/img/weishoucang.png"></image>
+                      <view class="co_word">收藏</view>
+                </view>
+              </block>
+              <block wx:else>
+                  <view class="collection" >
+                      <image src="../../../pages/img/yishoucang.png"></image>
+                      <view class="co_word">收藏</view>
+                  </view>
+            </block>
+</view>
+</block>
+
+
+<block wx:else><view></view></block>
+
+  

@@ -1,0 +1,25 @@
+<!--pages/restifyWord/restifyWord.wxml-->
+<view class="restify_wrap">
+  <view  class="restify">
+    重置密码
+  </view>
+</view>
+ <form bindsubmit='submit'>
+      <view class="form">
+          <input placeholder='账号' name="account"></input>
+          <input placeholder='旧密码' type="password" name="oldpassword"></input>
+          <input placeholder='请输入新密码' type="password" name="newpassword"></input>
+          <input placeholder='请确认密码' type="password" name="restifypassword"></input>
+          <view style="" class="code_wrap"> 
+            <input placeholder='验证码' style="border:none" name="code"></input>
+            <view style="display:flex;"  bindtap="changeCode">
+                <image src="http://122.152.202.106/test/index.php/im/identifying_code?num={{num}}" class="codeImg"></image>
+                <view>
+                  <view class="notClear">看不清</view>
+                  <view class="change notClear">换一张</view>
+                </view>
+            </view>
+          </view>
+      </view>
+      <button formType="submit" bindtap="confirmRestify">确认修改</button>
+</form> 

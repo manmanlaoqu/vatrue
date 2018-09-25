@@ -1,0 +1,48 @@
+/* pages/set/set.wxss */
+.set_content{
+  display: flex;
+  justify-content: space-between;
+  padding:32rpx 0;
+  padding-right:30rpx;
+  border-bottom:1rpx solid rgba(230,233,240,1);
+}
+.one{
+  font-size:32rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(114,123,134,1);
+}
+.head_pic image{
+width:80rpx;
+ height:80rpx; 
+border-radius: 80rpx;
+}
+.head_t{
+  line-height:80rpx;
+}
+button{
+  width:690rpx;
+  margin:0 auto;
+}
+.rewrite{
+  font-size:32rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(6,25,39,1);
+}
+.rewrite text{
+  display: inline-block;
+  margin-left:24rpx;
+  color:rgba(161,170,192,1);
+}
+.info{
+  font-size:32rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(6,25,39,1);
+}
+ .rewrite text{
+   font-weight: bold;
+ /* font-size:40rpx; */
+} 
+

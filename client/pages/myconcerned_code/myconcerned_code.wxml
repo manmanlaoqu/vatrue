@@ -1,0 +1,59 @@
+<!--pages/myconcerned_code/myconcerned_code.wxml-->
+<block wx:if="{{scanData}}">
+<block wx:for="{{scanData}}" wx:key='scandata'>
+   <view>
+     <view class="time">{{item[0].date}}</view>
+       <block wx:for="{{item}}" wx:key="unique">
+          <view style="background:#fff;" class="one">
+            <view class="scan_history {{index == 0 ? '':'border' }}"  wx:if= "{{item.is_box == 0}}" >
+              <view class="scan">
+                <view class="scan_img"><image src="{{item.headpic}}" mode='aspectFill'></image></view>
+                <view class="detail_wrap">
+                  <view style="overflow:hidden"><view class="scan_time">扫码时间: <text>{{item.add_time}}</text></view></view>
+                  <view>
+                    <view class="detail">{{item.name}}</view>
+                    <view class="price">{{item.price[0]}}<text>.{{item.price[1]}}元</text> </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            </view>
+            
+            <!--箱码  -->
+            <!-- xiangma_ico@3x.png -->
+           <view style="background:#fff;position:relative;" wx:if= "{{item.is_box == 1}}">
+                  <view class="scan_history {{index == 0 ? '':'border' }}" >
+                  <view class="box_img"><image src="../img/xiangma_ico.png"></image></view>
+                    <view class="scan" style='display:block;'>
+                         <view class="box_time">扫码时间：<text>{{item.add_time}}</text></view>
+                         <view class="box" style='display:flex;margin:12rpx 0;'>
+                            <view style="width:228rpx;">箱内货品数量：</view>
+                             <view>{{item.num}}</view>
+                        </view>
+                        <view class="box" style='display:flex;margin:12rpx 0;'>
+                            <view style="width:228rpx;">包装箱唯一码：</view>
+                             <view>{{item.uniqid}}</view>
+                        </view>
+                        <view class="box" style='display:flex;margin:12rpx 0;'>
+                            <view style="width:228rpx;">所属品牌：</view>
+                             <view>{{item.farmname}}</view>
+                        </view>
+                    </view>
+                  </view>
+            </view>
+       </block>
+   </view>
+</block>
+
+<!-- <view>
+      <view class="more" bindtap='more' style="display:{{more?'block':'none'}}" ><image src="../img/loadmore.png" ></image></view>   
+      <view class="more" style="display:{{more?'none':'block'}}">没有更多了</view>  
+</view> -->
+
+<view class="jumpTop {{appear?'jump':'cang'}}" style=""  bindtap='jumpTop' >
+ <image src="../img/top.png"></image>
+</view>
+</block>
+
+
+<block wx:else><view></view></block>

@@ -1,0 +1,86 @@
+<!--pages/check/check.wxml-->
+<view class="check_wrap">
+        <!--判断是否认证  -->
+          <view class="certify" wx:if="{{cert != 2}}">
+              <text> 该品牌未进行品牌认证，请谨慎购买！</text>
+          </view>
+           <view class="check_content">
+                <view class="product_detail">
+                      <view class="product">产品名称：<text>{{farm_info.farm_info.name}}</text></view>
+                      <view class="brand">所属品牌：<text>{{farm_info.product_info.name}}</text></view> 
+                </view>
+          <!--产品防伪标签  -->
+                <view class="product_label">
+                        <view class="label_title">产品防伪标签</view>
+                        <view class="label_img" wx:if="{{checkData.uniqid_img_url}}"><image src="{{checkData.uniqid_img_url}}"></image></view>
+                        <view class="label_img" wx:else><image src="{{checkData.uniqid_url}}"></image></view>
+                        <view class="times">已校验次数：<text>{{farm_info.number}}</text></view>
+                        <view class="product_detail">
+                            <view class="product" style="font-size:32rpx">唯一编码： <text style="color:rgba(6,25,39,1);">{{farm_info.uniqid
+}}</text></view>
+                            <!-- <view class="brand">唯一网址：<text>{{}}</text></view>  -->
+                            <!--https://tr.vatrue.com/BQ0AC16C4E67783C58  -->
+                            <view class="brand" style="display:flex;font-size:32rpx">
+                                <view style="width:160rpx;">唯一网址：</view>
+                               <view style="width:526rpx;word-wrap: break-word;color:rgba(6,25,39,1);" >https://tr.vatrue.com/BQ0AC16C4E67783C58</view>
+                            </view> 
+                            
+                        </view>
+                 </view>
+                 <!--标签生成信息  -->
+                <view class="product_label">
+                        <view class="label_title">标签生成信息</view>
+                        <view class="product_detail">
+                            <view  class="product" style="display:flex;">
+                              <view>生成人员：</view>
+                              <view><image src="{{checkData.account_info[0].headpic}}" style="width:50rpx;height:50rpx;border-radius:50rpx;vertical-align:bottom;margin-right:16rpx;"></image></view>
+                              <view style="color:black">{{checkData.account_info[0].nickname}}</view>
+                            </view>
+
+                            <view class="product">生成时间：<text>{{checkData.ctime}}</text></view>
+                            <view class="product">生成地点：<text>{{checkData.uniqid_address}}</text></view> 
+                            <view class="brand method"> 防伪校验方法：<text>编码与纹理比对</text></view>                                                    
+                        </view>
+                 </view> 
+                     <!-- 标签 -->
+                     <view class="">
+                        <view class="part">
+                            <view class="partLeft">
+                                <view class="left_o" style="float:left">1</view>
+                                <view style="float:left">
+                                    <view class="part_content">
+                                      <view class="content_o">唯一编码</view>
+                                      <view>一物一码，每个码都是唯一的。</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="partRight"><image src='../img/fangwei_weiyibianma.png'></image></view>
+                        </view>
+                         <view class="part">
+                            <view class="partLeft">
+                                <view class="left_o" style="float:left">2</view>
+                                <view style="float:left">
+                                    <view class="part_content">
+                                      <view class="content_o">纹理</view>
+                                      <view>纹理在生产过程中随机产生，每个标签纹理都不同。</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="partRight"><image src='../img/fangwei_wenli.png'></image></view>
+                        </view>
+                         <view class="part">
+                            <view class="partLeft">
+                                <view class="left_o" style="float:left">3</view>
+                                <view style="float:left">
+                                    <view class="part_content">
+                                      <view class="content_o">唯一网址</view>
+                                      <view>溯源唯一指定网址。</view>
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="partRight"><image src='../img/fangwei_weiyiwangzhi.png'></image></view>
+                        </view>
+                     
+                     </view>
+         </view>
+</view>

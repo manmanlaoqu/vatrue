@@ -1,0 +1,85 @@
+<!--pages/person/person.wxml-->
+<view class="person_wrap">
+    <view class="person_header">
+        <view class="person_hd">
+            <!--用户头部  -->
+            <view class="user_area">
+                <!--用户名区  -->
+                <view class="user_name">
+                      
+                    <!-- <view class="username" wx:else>{{userInfo.nickName}}</view>  -->
+                    <block  wx:if="{{userInfo.nickname}}"><view class="username">{{userInfo.nickname}}</view></block>
+                    <block wx:else><view class="no_login">未登录</view></block> 
+                </view>
+                <!--用户头像区  -->
+                <view class="userImg">
+                       <!--用户头像  -->
+                      <view wx:if="{{userInfo.headpic}}" class="user_img"><image src="{{userInfo.headpic}}"></image></view>
+                      <!--默认头像  -->
+                      <view wx:else class="user_img"><image src="../img/default_img.png"></image></view>  
+                </view>
+            </view>
+            <!--  -->
+            <view class="record_num">
+              <view class="part" bindtap='myconcerned_product'>
+                  <view>{{mycount.products}}</view>
+                  <view>商品关注</view>
+              </view>
+                  <view class="part" bindtap="myconcerned_brand">
+                  <view>{{mycount.farms}}</view>
+                  <view>品牌关注</view>
+              </view>
+                  <view class="part" bindtap="myconcerned_content">
+                  <view>{{mycount.favorites}}</view>
+                  <view>内容收藏</view>
+              </view>
+                  <view class="part" bindtap="myconcerned_code">
+                  <view>{{mycount.scans}}</view>
+                  <view>扫码记录</view>
+              </view>
+            </view>
+        </view>
+    </view>
+    <!--用户使用功能  -->
+    <view class="person_content">
+        <view class="content_part">
+          <view class="con_img"> 
+            <image src="../img/web_wode_ico_xiaoxi.png"></image>
+            <text>消息</text>
+          </view>
+          <view class="forward"><image src="../img/web_wode_ico_next.png"></image></view>
+        </view>
+          <view class="content_part" bindtap='shop_list'>
+          <view class="con_img"> 
+            <image src="../img/web_wode_ico_dingdan.png"></image>
+            <text>我的购买订单</text>
+          </view>
+          <view class="forward"><image src="../img/web_wode_ico_next.png"></image></view>
+        </view>
+          <view class="content_part" bindtap='share'>
+          <view class="con_img"> 
+            <image src="../img/web_wode_ico_fenxiang.png"></image>
+            <text>我的分享</text>
+          </view>
+          <view class="forward"><image src="../img/web_wode_ico_next.png"></image></view>
+        </view>
+          <view class="content_part">
+          <view class="con_img"> 
+            <image src="../img/web_wode_ico_zhenxin.png"></image>
+            <text>关于真信溯源</text>
+          </view>
+          <view class="forward"><image src="../img/web_wode_ico_next.png"></image></view>
+        </view>
+          <view class="content_part" bindtap='setPage'>
+          <view class="con_img"> 
+            <image src="../img/web_wode_ico_shezhi.png"></image>
+             <text>设置</text> 
+            <!-- <button>设置</button> -->
+          </view>
+          <view class="forward"><image src="../img/web_wode_ico_next.png"></image></view>
+        </view>
+    </view>
+</view>
+
+
+<!-- //电话区 -->

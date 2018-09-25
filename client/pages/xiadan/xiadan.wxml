@@ -1,0 +1,14 @@
+<!--pages/xiadan/xiadan.wxml-->
+<view class="order_wrap">
+  <view class="order" >
+       <view class="order_success">
+            <image src="../img/download.png"></image>
+            <view class="order_s">订单提交成功!</view>
+       </view>  
+       <view class="price">
+              <view>应付金额：</view>
+              <view class="money">￥100元</view>
+       </view>
+  </view>
+   <button >确定支付</button>
+</view>

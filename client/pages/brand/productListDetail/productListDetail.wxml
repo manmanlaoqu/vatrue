@@ -1,0 +1,195 @@
+<!--pages/brand/productListDetail/productListDetail.wxml-->
+ <view class="product_list_wrap">
+    <view>
+        <!-- <view class="brand_de">
+    
+        <view class="headpic"><image src="{{proInfo.farminfo.headpic}}"></image></view>
+        <view>{{proInfo.farminfo.name}}</view>
+            
+        </view> -->
+        <view class="header_wrap">
+        <!-- wx:if="{{proInfo.specData[0].image}}" -->
+             <block wx:for="{{proInfo.specData}}" wx:if="{{index == countNum}}"><view><image src="{{item.image}}" mode='aspectFill'></image></view></block> 
+            <!-- <view><image src="{{proInfo.specData[0].image}}" mode='aspectFill'></image></view> -->
+            <!-- <view wx:else><image src="http://test4.farmtruth.cn/images/no-img.jpg"></image></view> -->
+            <view class="proInfo_name">{{proInfo.name}}</view>
+            
+            <!--价格  -->
+            <!-- <view wx:if="{{proInfo.specData[0].price == '0' || proInfo.specData[0].price == ''}}" class="proInfo_noprice">暂无标价</view>
+            <view wx:else class="proInfo_price">商品价格：<text><text style="font-size:28rpx">￥</text>{{proInfo.specData[0].price[0]}}<text style="font-size:28rpx">.{{proInfo.specData[0].price[1]}}</text></text></view> -->
+
+
+            <block wx:for="{{proInfo.specData}}" wx:if="{{index == countNum}}">
+                <view wx:if="{{item.price == '暂无价格'}}" class="proInfo_noprice">暂无标价</view>
+                <!-- <view wx:if="{{item.price == '0' || item.price == ''}}" class="proInfo_noprice">暂无标价</view> -->
+            <view wx:else class="proInfo_price">商品价格：<text><text style="font-size:28rpx">￥</text>{{item.price[0]}}<text style="font-size:28rpx">.{{item.price[1]}}</text></text></view> 
+            </block>
+
+
+
+        </view>
+    </view>
+    <!--规格  -->
+    <view class="size" wx:if="{{proInfo.specData[0].specifications}}">
+        <view class="size_title">产品规格</view>
+        <!-- <view>{{proInfo.specData[0].specifications}}</view> -->
+        <view style="padding-right:30rpx;">
+              <!--判断当前是否是该下标  -->
+            <block wx:for="{{proInfo.specData}}" wx:key="{{item}}" data-index="{{index}}" >
+            <!--style="{{index == id ? color:red ? color:''}}"  -->
+        
+               <text class="specData" bindtap="guige" data-index="{{index}}" class="{{index == id?'spec' :'specData'}}">{{item.specifications}}</text>
+           </block>
+        </view>
+    </view>
+       <!-- 实景照片-->
+    <view class="size" wx:if= "{{proInfo.pic.length}}">
+        <view class="size_title">实景照片</view>
+        <view style="padding-top:30rpx;">
+                <view class="section section_gap">
+                    <scroll-view class="scroll-view_H" scroll-x="true">
+                        <view id="green" class="scroll-view-item_H bc_green" wx:if="{{proInfo.pic}}">
+                          <!--直接对image循环  -->
+                         <image wx:for="{{imgSrc}}" data-list="{{imgSrc}}" data-src="{{item}}" wx:item="{{item}}" wx:key="{{index}}"  src="{{item}}" bindtap="imgYu"></image> 
+                        </view>
+                    </scroll-view>
+                </view>
+        </view>
+    </view>
+
+    <!--产品溯源  -->
+        <view class="size" wx:if= "{{proInfo.origin.length}}" style="padding-right:30rpx;">
+             <view class="size_title">产品溯源</view>
+               <view style="border-left:1rpx solid #eee">
+               
+                     <block wx:for="{{originPart}}" wx:key="{{index}}">
+                         <view class="time"><text class="dot"></text> <text class="time_item">{{item.ctime}}</text></view>
+                <view class="product_wrap_con">
+                     <view class="content_product">
+                        <!--内容  -->                
+                        <view class="content_item">{{item.text}}</view>
+                        <!--图片  -->
+                        <view>
+                        <!-- {{item.originimg[0].url}} -->
+                            <view wx:if="{{item.originimg.length == 0}}"></view>
+                           <image wx:elif="{{item.originimg.length == 1}}"  src="{{item.originimg[0].url}}" class="pic_one" bindtap="imgLarge" data-src="{{item.originimg[0].url}}"></image>
+                           <view wx:elif="{{item.originimg.length == 2}}">
+                              <block wx:for="{{item.originimg}}" wx:key="{{index}}">
+                                 <image src="{{item.url}}" class="pic_two" bindtap='imgLarge' data-src="{{item.url}}"></image>  
+                              </block>
+                           </view>
+                           <!--三到九的样式  -->
+                            <!-- <view wx:elif="{{item.originimg.length == 3 || item.originimg.length == 6 || item.originimg.length == 9}}"  class="pic_three">  -->
+                            <view wx:else="" class="pic_three"> 
+                              <block wx:for="{{item.originimg}}" wx:key="{{item}}">
+                                 <image src="{{item.url}}"  bindtap='imgLarge' data-src="{{item.url}}"></image>  
+                              </block>
+                           </view>
+                        </view>
+                        <!--批次  -->
+                        <view class="pici" wx:if="{{item.batch}}">批次：{{item.batch}}</view>
+                        <view wx:else></view>
+
+                        <!--直播  -->
+                        <view wx:if="{{item.originlive.length > 0}}">
+                            <block wx:for="{{item.originlive}}">
+                                  <video src="{{item.src}}"></video>
+                            </block>
+                        </view>
+                        <!--视频  -->
+                        <view wx:if="{{item.originvideo.length > 0}}">
+                              <block wx:for="{{item.originvideo}}">
+                                    <video src="{{item.video_url}}" style="width:650rpx;" poster='{{item.cover_url}}'></video>
+                              </block>
+                        </view>
+                </view>
+                <!--content_product end  -->
+                
+                
+                </view>
+               
+              </block>
+               
+               </view>
+              
+              <view style="width:280rpx;margin:0 auto;"  wx:if="{{!appear}}">
+                  <image src="../../img/more.png" class="more" bindtap='more'></image>
+              </view>
+               <block wx:for="{{originPartT}}" wx:key="{{index}}" wx:if="{{appear}}">
+                  <view class="">
+                            <view class="time"><text class="dot"></text> <text class="time_item">{{item.ctime}}</text></view>
+                          <view class="product_wrap_con">
+                              <view class="content_product">
+                                  <!--内容  -->                
+                                  <view class="content_item">{{item.text}}</view>
+                                  <!--图片  -->
+                                  <view>
+                                  <!-- {{item.originimg[0].url}} -->
+                                      <view wx:if="{{item.originimg.length == 0}}"></view>
+                                    <image wx:elif="{{item.originimg.length == 1}}"  src="{{item.originimg[0].url}}" class="pic_one"></image>
+                                    <view wx:elif="{{item.originimg.length == 2}}">
+                                        <block wx:for="{{item.originimg}}" wx:key="{{index}}">
+                                          <image src="{{item.url}}" class="pic_two"></image>  
+                                        </block>
+                                    </view>
+                                    <!--三到九的样式  -->
+                                      <!-- <view wx:elif="{{item.originimg.length == 3 || item.originimg.length == 6 || item.originimg.length == 9}}"  class="pic_three">  -->
+                                      <view wx:else="" class="pic_three"> 
+                                        <block wx:for="{{item.originimg}}" wx:key="{{item}}">
+                                          <image src="{{item.url}}" ></image>  
+                                        </block>
+                                    </view>
+                                  </view>
+                                  <!--批次  -->
+                                  <view class="pici" wx:if="{{item.batch}}">批次：{{item.batch}}</view>
+                                  <view wx:else></view>
+
+                                  <!--直播  -->
+                                  <view wx:if="{{item.originlive.length > 0}}">
+                                      <block wx:for="{{item.originlive}}">
+                                            <video src="{{item.src}}"></video>
+                                      </block>
+                                  </view>
+                                  <!--视频  -->
+                                  <view wx:if="{{item.originvideo.length > 0}}">
+                                        <block wx:for="{{item.originvideo}}">
+                                              <video src="{{item.video_url}}" style="width:650rpx;" poster='{{item.cover_url}}'></video>
+                                        </block>
+                                  </view>
+                          </view>
+                          <!--content_product end  -->
+                
+                      </view>
+                  </view>
+                  
+              </block> 
+        </view>
+ 
+   <!-- 产品详情 -->
+    <view class="size" wx:if= "{{proInfo.product_detail.length}}">
+        <view class="size_title">产品详情</view>
+        <view style="padding-right:30rpx;padding-top:30rpx;">
+              <block wx:for="{{proInfo.product_detail}}" wx:key="{{index}}">
+                 <image src="{{item.image}}" mode='widthFix' style="width:100%;" wx:if="{{item.image}}"></image>
+                 <view wx:if="{{item.video_url}}" class="video_product"><video src="{{item.video_url}}"></video></view>
+                 <view wx:if="{{item.text}}" style="font-size:32rpx;padding:16rpx;"><rich-text nodes="{{item.text}}"></rich-text></view>
+                 <view wx:if="{{item.link}}" style="font-size:32rpx;padding:16rpx;">{{item.caption}}:{{item.link}}</view>
+             </block>
+        </view>
+    </view>
+</view> 
+<!-- 固定底部   -->
+  <view class="fixBottom">
+      <view style="display:flex;">
+          <view class="chat">
+              <image src="../../img/chanpinxiangqing_xiaoxi.png"></image>
+              <block wx:if="{{isNot}}"><image src="../../img/chanpinxiangqing_xin.png"  bindtap='collect'></image></block>
+               <block wx:else><image src="../../img/chanpinxiangqing_xin_yiguanzhu.png"></image></block>
+          </view>
+
+             <block wx:if="{{proInfo.farminfo.cert == 2}}"><view class="xiadan"><button type="primary">立即下单</button></view></block>  
+                 <block wx:else><view class="xiadan"><button type="default" disabled='true'>立即下单</button></view></block>  
+          <!-- <button type="primary">立即下单</button> -->
+      </view>
+  
+  </view>

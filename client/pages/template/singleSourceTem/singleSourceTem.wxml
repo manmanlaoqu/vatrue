@@ -1,0 +1,66 @@
+<!--pages/template/singleSourceTem/singleSourceTem.wxml-->
+<template name="singleSourceTem">
+ <!-- 单品追溯 -->
+  <view class="content_wrap">
+        <view class="content_wrap_title">单品追溯</view>
+        <view class="zhuisu_content">
+                 <block wx:for="{{suList}}" wx:key="{{index}}" wx:index="{{index}}" wx:item="{{index}}"> 
+                        <view class="zhuisu_item_wrap">
+                        <view class="zhuisu_item" style='display:flex'>
+                            <view>人员：</view>
+                            <image src="{{item.account_info.headpic}}"></image> 
+                            <view class="blk">{{item.account_info.nickname}}</view>  
+                        </view> 
+                        <!--时间  -->
+                        <view class="zhuisu_item">
+                            <view>时间：<text class="blk">{{item.ctime}}</text> </view>  
+                        </view>
+                        <!--地点  -->
+                        <view class="zhuisu_item">
+                              <view>地点：<text class="location" bindtap='jumpMap' data-lon='{{item.lon}}' data-lat='{{item.lat}}'>{{item.location}}</text></view>  
+                        </view>
+                        <!--事件  -->
+                       <view class="zhuisu_item">
+                            <view>事件：<text class="blk">{{item.caption}}</text></view>  
+                        </view>
+                    </view>     
+                </block>
+         <!--更多  -->
+           <view class="more" bindtap='more'>
+                <image src='../img/loadmore.png'></image>
+           </view>
+          <!-- 更多  end -->       
+    </view>
+
+      <view class="zhuisu_content" wx:if="{{loading}} == 2" style="display:none">
+                <block wx:for="{{suList}}" wx:key="{{index}}" wx:index="{{index}}" wx:item="{{index}}">
+                        <view class="zhuisu_item_wrap">
+                        <view class="zhuisu_item" style='display:flex'>
+                            <view>人员：</view>
+                            <image src="{{item.account_info.headpic}}"></image> 
+                            <view class="blk">{{item.account_info.nickname}}</view>  
+                        </view> 
+                        <!--时间  -->
+                        <view class="zhuisu_item">
+                            <view>时间：<text class="blk">{{item.ctime}}</text> </view>  
+                        </view>
+                        <!--地点  -->
+                        <view class="zhuisu_item">
+                              <view>地点：<text class="location" bindtap='jumpMap' data-lon='{{item.lon}}' data-lat='{{item.lat}}'>{{item.location}}</text></view>  
+                        </view>
+                        <!--事件  -->
+                       <view class="zhuisu_item">
+                            <view>事件：<text class="blk">{{item.caption}}</text></view>  
+                        </view>
+                    </view>     
+                </block>
+         <!--更多  -->
+           <view class="more" bindtap='more'>
+                <image src='../img/loadmore.png'></image>
+           </view>
+          <!-- 更多  end -->       
+    </view>     
+   </view>
+
+
+</template>

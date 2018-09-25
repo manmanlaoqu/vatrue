@@ -1,0 +1,25 @@
+<!--pages/myconcerned_brand/myconcerned_brand.wxml-->
+<block wx:if="{{isNot != 0}}">
+<block wx:for="{{conBrand}}">
+    <view class="con_brand">
+        <view class="wrap">
+            <view class="head">
+                  <view class="headpic_wrap"><image src='{{item.headpic}}' class="headpic"></image><image src="../img/guanzhu_pinpai_ico.png" class="brandImg"></image></view>    
+                  <view class="time" >{{item.time}}</view>
+              </view>
+              <view class="farm_name">{{item.name}}</view>
+              <view class="content">{{item.short_introduce}}</view> 
+        </view>
+    </view>
+  
+</block>
+<view>
+      <view class="more" bindtap='more' style="display:{{more?'block':'none'}}" ><image src="../img/loadmore.png" ></image></view>   
+      <view class="more" style="display:{{more?'none':'block'}}">没有更多了</view>  
+</view>
+
+
+</block>
+
+<block wx:else><view></view></block>
+

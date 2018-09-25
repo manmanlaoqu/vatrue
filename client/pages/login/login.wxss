@@ -1,0 +1,28 @@
+/* pages/login/login.wxss */
+.login_wrap{
+   position:fixed;top:0;right:0;left:0;bottom:0;background:rgba(0,0,0,.2);z-index:100000 
+}
+.login{
+  background:#fff;
+  width:500rpx;
+  height:340rpx;  
+  border-radius: 10rpx;
+  position:absolute;
+  top:0;right:0;left:0;bottom:0;margin:auto;
+  text-align: center;
+  padding:30rpx 0;
+}
+.login view{
+  margin: 30rpx 0;
+}
+.one{
+  font-size:32rpx;
+  font-weight: bold;
+}
+.two{
+  font-size:28rpx;
+  color:rgba(0,0,0,.5);
+}
+button{
+  margin-top:70rpx;
+}

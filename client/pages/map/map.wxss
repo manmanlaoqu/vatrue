@@ -1,0 +1,43 @@
+/* pages/map/map.wxss */
+.page-section-gap{
+  box-sizing: border-box;
+  /* padding: 0 30rpx; */
+}
+
+.page-body-button {
+  margin-bottom: 30rpx;
+}
+map{
+  height:502rpx;
+
+}
+.page-body{
+  height:100%;
+}
+.location{
+      position: fixed;
+    bottom: 60rpx;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    width: 98%;
+    height: 78rpx;
+    text-align: center;
+    background: hsla(0,0%,100%,.7);
+    line-height: 62rpx;
+    max-width: 1000rpx;
+    margin: 0 auto;
+    border-radius: 20rpx;
+    box-shadow: 0 8rpx 4rpx rgba(6,25,39,.1);
+}
+.location_d{
+  margin-top:12rpx;
+}
+.location image{
+  width:22rpx;
+  height:26rpx;
+  margin-right:15rpx;
+}
+.location text{
+  font-size:32rpx;
+}

@@ -1,0 +1,109 @@
+/* pages/state/state.wxss */
+page{
+  background:#F1F4F9;
+}
+.state_wrap{
+ padding:16rpx 30rpx;
+}
+.xianshi{
+  display:block;
+}
+.yincang{
+  display:none;
+}
+.loadMore{
+  margin:0 auto;
+  width:260rpx;
+  padding-bottom:30rpx;
+}
+.loadMore image{
+  width:100%;
+  height:70rpx;
+}
+.nomore{
+  text-align:center;
+  padding-bottom:30rpx;
+  margin-top:-20rpx;
+  font-size:32rpx;
+  color:rgba(97,109,134,1);
+}
+
+
+.time{
+  font-size:28rpx;
+font-family:PingFangSC-Regular;
+color:rgba(152,157,170,1);
+line-height:50rpx;
+padding-bottom:16rpx;
+
+}
+.words{
+  word-wrap:break-word;
+font-size:32rpx;
+font-family:PingFangSC-Regular;
+color:rgba(6,25,39,1);
+margin-bottom:16rpx;
+}
+.state_content{
+  background: #fff;
+  padding:32rpx 30rpx 22rpx;
+  margin-bottom:42rpx;
+}
+.one{
+  height:345rpx;
+
+  width:100%;
+}
+.long{
+  position:relative;
+}
+.long image{
+  height:345rpx;
+  width:100%;
+}
+.item_title{
+  font-size:32rpx;
+  margin-top:20rpx;
+}
+.artical{
+  line-height:40rpx;
+  height:40rpx;
+  width:80rpx;
+  font-size:25rpx;
+   position:absolute; 
+   right:0; 
+   bottom:11rpx;  
+    color:#fff;
+    text-align: center;
+    background: rgba(0,0,0,.4)
+}
+/*多种图状态  */
+.pic_ni{
+  display: flex;
+  flex-wrap: wrap;
+}
+.pic_ni image{
+  width:31.5%;
+  height:206rpx;
+  margin-right:16rpx;
+}
+.pic_ni image:nth-child(4){
+  margin:16rpx 0;
+}
+.pic_ni image:nth-child(5){
+  margin:16rpx 16rpx 0 16rpx;
+}
+.pic_ni image:nth-child(6){
+  margin-top:16rpx;
+}
+.pic_ni image:nth-child(3n+3) {
+  margin-right: 0rpx;
+}
+.pic_two{
+  width:48.5%;
+  height:200rpx;
+}
+.pic_two:first-child{
+  margin-right:16rpx;
+}
+

@@ -1,0 +1,102 @@
+<!--pages/shop/shop.wxml-->
+<view class="shop_wrap">  
+  <!-- 地址 -->
+  <!--有地址  -->
+  <!-- wx:if="{{addressInfo}}" -->
+  <block wx:if="{{addressInfo.is_default == 1 || options.id}}">
+    <view style="background:#fff;display:flex; justify-content:space-between;padding:20rpx 30rpx;" bindtap='jumpAddressList'>
+      <view>
+            <view style="display:flex;">
+              <view class="address_name">{{addressInfo.consignee}}</view>
+              <view class="address_name address_tel">{{addressInfo.phone}}</view>
+           </view> 
+           <view class="address_content">{{addressDetail}}</view>
+     </view>
+     <view class="arrow">></view>
+    </view>
+  </block>
+  <block wx:else><view class="address" style="background:#fff">
+  <!--如果没有地址  -->
+      <view bindtap='addAddress'>添加收货地址<text style="float:right">></text></view>
+      <!--有地址时显示选择的收件人信息  -->
+      <view></view>
+  </view></block>
+  <view class="vie" >
+       <image src="../img/querendingdan_tiaowen.png" class="address_img"></image>  
+  </view>
+
+  <!--订单详情  -->
+    <view class="order_detail">
+       
+         <!--品牌  -->
+          <view class="brand_name">
+                <view>
+                  <image  src="{{farm_info.farm_info.headpic}}"></image>         
+                </view>
+                <view class="text_name">
+                  <text>{{farm_info.farm_info.name}}</text>  
+                </view>
+          </view>
+        
+        <!--内容区  -->
+        <view class="content">
+            <view class="content_area">
+                  <!--左图  -->
+                  <view class="content_img"><image src="{{farm_info.product_info.cover_img}}" mode="aspectFill"></image> </view>
+                  <!--右文字  -->
+                  <view class="content_right">
+                      <view class="intro">{{productinfo.name}}</view>
+                      <view class="guige" style="margin:30rpx 0 20rpx">{{productinfo.specifications}}</view>
+                      <view class="price">
+                        <view class="jiage">商品价格：</view>
+                        <view class="price_num" style="margin-left:100rpx"><text>￥</text>{{price_single}}</view>
+                      </view> 
+                  </view>
+            
+            </view>
+
+            <view class="count">
+                <view class="count_n">购买数量：</view>
+                <view class="plus">
+                    <view bindtap='jian'><image src='../img/querendingdan_jianhao.png'></image></view>
+                      <view class="count_num">{{count_num}}</view>
+                    <view bindtap='add'><image src='../img/querendingdan_jiahao.png'></image></view>                    
+                </view>
+            </view>
+        </view>
+        <!--留言  -->
+            <view class="levnote" style='display:flex'>
+                <view class="leave_note">留言: </view>
+              <view>
+               <textarea class="textarea"></textarea>
+              
+              </view>
+           
+            </view>
+    </view>
+    <!--商品价格计算  -->
+    <view class="price_count">
+       <view class="pu jin">
+          <view>商品金额：</view>
+          <view class="price_yun">￥{{total_single}}</view>
+       </view>
+       <!-- <view  class="pu">
+            <view>运费：</view>
+            <view>+￥{{mail_price}}</view>
+       </view> -->
+    </view>
+    <view class="blank_gray"></view>
+    <view>
+    <!--固定定位  -->
+      <view class="total">
+          <view class="total_content">
+          <!-- <image src="../img/backGray.png" class="arrow_gray" bindtap="jumpHome"></image> -->
+                <view class="total_count_su">合计<text class="total_count_su_num">￥{{total}}</text></view>
+                   <!-- <block><view class="xiadan" bindtap="order"><button type="primary">立即下单</button></view></block>    -->
+                   <block wx:if="{{options.cert == 2}}"><view class="xiadan"><button type="primary">立即下单</button></view></block>  
+                 <block wx:else><view class="xiadan"><button type="default" disabled='true'>立即下单</button></view></block>  
+          </view>  
+      </view>
+    </view>
+</view>
+

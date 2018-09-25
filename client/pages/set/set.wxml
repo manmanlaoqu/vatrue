@@ -1,0 +1,27 @@
+<!--pages/set/set.wxml-->
+<view style="padding-left:30rpx;">
+    <view >
+      <view class="set_content">
+        <view class="one head_t">头像</view>
+        <view class="head_pic"><image src="{{userInfo.headpic}}"></image></view>
+      </view>    
+      <view class="set_content">
+          <view class="one">用户名</view>
+          <view class="info">{{userInfo.nickname}}</view>
+      </view>
+      <view class="set_content">
+        <view class="one">绑定手机</view>
+        <!--如果是app用户有手机号  -->
+        <block wx:if="{{userInfo.phone}}"><view class="info">{{userInfo.phone}}</view></block>
+        <!--如果不是app用户,通过手机授权获取手机号  -->
+         <block wx:if="{{userInfo.phone}}"><view class="info">{{userInfo.phone}}</view></block>
+          <block wx:else><view class="info">暂无绑定手机号</view></block>
+      </view>
+      <view class="set_content" bindtap="restify">
+          <view class="one">登录密码</view>
+          <view class="rewrite">修改<text>></text></view>
+      </view>
+    </view>
+
+    <view style="padding-right:30rpx;margin-top:450rpx;" bindtap='back'><button type="warn">退出</button></view>
+</view> 

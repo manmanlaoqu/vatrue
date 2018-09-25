@@ -1,0 +1,241 @@
+/* pages/shop/shop.wxss */
+page{
+  height:100%;
+    background:#F1F4F9;
+}
+.address{
+  /* padding:24rpx 32rpx 24rpx 30rpx; */
+  padding:50rpx 32rpx 50rpx 30rpx;
+ background:rgba(241,244,249,1);
+ /* border-image: url("../img/querendingdan_tiaowen@3x.png") 6 6 6 202 repeat round; */
+ font-size:40rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(114,123,134,1);
+}
+.address text{
+  line-height: 50rpx;
+  font-size:50rpx;
+  font-weight: 400;
+  color:rgba(193,200,216,1);
+}
+.address_img{
+  height:4rpx;
+  width:100%;
+}
+.vie{
+  margin-top:-34rpx;
+   margin-bottom:-5rpx; 
+  padding:0;
+}
+.order_detail{
+  /* padding-bottom:20rpx; */
+background:#fff;
+  border-top:12rpx solid rgba(241,244,249,1);
+   border-bottom:12rpx solid rgba(241,244,249,1);
+}
+ .brand_name{
+   display:flex;
+ }
+ .text_name{
+   line-height:130rpx;
+    margin-left:16rpx;
+ }
+.brand_name image{
+  margin:24rpx 0 24rpx 30rpx;
+  width:80rpx;
+  height:80rpx;
+  border-radius: 80rpx;
+}
+.content{
+
+  padding-left:30rpx;
+}
+.content_area{
+  display:flex;
+  border-top:1rpx solid rgba(217,222,224,1);
+  border-bottom:1rpx solid rgba(217,222,224,1);  
+}
+.content_img{
+  padding:24rpx 0;
+  margin-right:16rpx;
+}
+.content_img image{
+  width:240rpx;
+  height:240rpx;
+}
+.content_right{
+
+  /* padding:66rpx 30rpx 0 0; */
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  height:276rpx;
+}
+.intro{
+  font-weight:bold;
+font-size:32rpx;
+font-family:PingFangSC-Medium;
+color:rgba(6,25,39,1);
+}
+.price{
+  display:flex;
+  justify-content: space-between;
+}
+.guige{
+    font-size:28rpx;
+font-family:PingFangSC-Regular;
+color:rgba(114,123,134,1);
+margin:16rpx 0 8rpx;
+}
+.jiage{
+  font-size:32rpx;
+font-family:PingFangSC-Regular;
+color:rgba(114,123,134,1);
+}
+.price_num{
+  font-weight: bold;  
+  font-size:40rpx;
+font-family:PingFangSC-Medium;
+color:rgba(255,119,32,1);
+}
+.price_num text{
+  font-size:28rpx;
+}
+.count{
+  padding:32rpx 0;
+  padding-right:30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.plus{
+  width:255rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.plus image{
+  width:64rpx;
+  height:64rpx;
+}
+.suan{
+  width:64rpx;
+  height:64rpx;
+  border-radius: 64rpx;
+  /* background:lightgray; */
+   background:rgba(241,244,249,1); 
+  text-align: center;
+  font-size:44rpx;
+}
+.count_num{
+  line-height: 60rpx;
+}
+.count_n{
+font-size:32rpx;
+font-family:PingFangSC-Regular;
+color:rgba(114,123,134,1);
+line-height:60rpx;
+}
+.levnote{
+  border-top:1rpx solid rgba(241,244,249,1);
+  padding:30rpx 0 30rpx 30rpx;
+  padding-bottom:0;
+}
+.textarea{
+  margin-top:5rpx;
+  display: inline-block;
+  height:90rpx;
+  font-size:32rpx;
+font-family:PingFangSC-Regular;
+color:rgba(114,123,134,1);
+  /* border:1px solid lightblue; */
+}
+.leave_note{
+  margin-right:20rpx;
+  /* display: inline-block; */
+font-size:32rpx;
+font-family:PingFangSC-Regular;
+color:rgba(114,123,134,1);
+}
+.price_count{
+  background: #fff;
+  padding:16rpx 24rpx 16rpx 36rpx;
+  font-size:32rpx;
+font-family:PingFangSC-Regular;
+color:rgba(114,123,134,1);
+}
+.pu{
+  display: flex;
+  justify-content: space-between;
+}
+.jin{
+  margin-bottom:16rpx;
+}
+.price_yun{
+  font-weight: bold;
+  font-size:32rpx;
+  color:rgba(6,25,39,1);
+}
+.blank_gray{
+ height:165rpx;
+  background:#F1F4F9;
+}
+.total{
+  position:fixed;
+  height:98rpx;
+  width:100%;
+  background:#fff;
+  bottom:0;
+  line-height: 98rpx;
+}
+.total_content{
+  font-family:PingFangSC-Medium;
+  display:flex;
+  justify-content: space-between;
+}
+.total_count_su{
+  color:#FF7720;  
+  width:450rpx;
+  text-align: center;
+  font-size:28rpx;  
+}
+.total_count_su_num{
+  font-weight: bold;
+  font-size:48rpx;
+}
+ .xiadan{
+   background:rgba(35,207,125,1);
+   text-align: center;
+  width:300rpx;
+  color:#fff;
+} 
+button{
+  height:100%;
+  line-height: 98rpx;
+}
+.arrow{
+  line-height:95rpx;
+  width:16rpx;
+height:27rpx;
+color:rgba(193,200,216,1);
+}
+.address_name{
+  font-size:40rpx;
+font-family:PingFangSC-Medium;
+font-weight:500;
+color:rgba(6,25,39,1);
+}
+.address_tel{
+  margin-left:16rpx;
+  margin-bottom:16rpx;
+}
+.address_content{
+  font-size:32rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(114,123,134,1);
+}
+.arrow_gray{
+  width:36rpx;
+ height:30rpx;
+ margin-right:50rpx;
+}

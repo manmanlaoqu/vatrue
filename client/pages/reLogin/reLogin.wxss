@@ -1,0 +1,47 @@
+/* pages/reLogin/reLogin.wxss */
+page{
+  background: #F1F4F9;
+}
+.restify_wrap{
+  background:#fff;
+  padding:20rpx 0;
+}
+.restify{
+  font-weight: bold;
+  font-size:40rpx;
+  text-align: center;
+}
+.form{
+  background:#fff;
+  margin-top:30rpx;
+}
+input{
+  font-size:32rpx;
+  padding:20rpx 30rpx;
+  border-bottom:1rpx solid #eee;
+}
+.notClear{
+  margin-top:10rpx;
+  font-size:26rpx;
+}
+.change{
+  color:#3b95e9;
+}
+.codeImg{
+  margin:10rpx;
+  width:140rpx;
+  height:80rpx;
+}
+.code_wrap{
+  display:flex;justify-content:space-between;padding-right:30rpx;
+}
+button{
+    color: #fff;
+    background-color: #4cd964;
+    border-radius: 10rpx;
+    text-align: center;
+     width:94%; 
+    margin:0 auto;
+    margin-top:50rpx;
+    font-size:32rpx;
+}

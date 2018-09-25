@@ -1,0 +1,193 @@
+<!--pages/home/home.wxml-->
+<!-- <view  bindtap='sao' style="margin-bottom:-30rpx;float:right">
+   <image src="../img/4.png" style="width:50rpx;height:50rpx;"></image>
+</view>  -->
+<!-- <view style="margin-bottom:40px;">{{qrCodeUrl}}</view> -->
+<!-- <view class="mask">
+   登录
+</view>  -->
+<!-- <view style="position:fixed;top:0;right:0;left:0;bottom:0;background:rgba(0,0,0,.3);z-index:100000"></view> -->
+<!--如果参数为0，显示无数据  -->
+<!-- <block wx:if="{{farm_info}}"> -->
+<view class="wrap">
+  <view class="wrap_content">
+      <!--partone  -->
+      <view class="shop_info_wrap">
+      <!--左侧头像  -->
+        <view class="shop_info_one">
+          <view class="shop_info_img"><image mode="" src="{{farm_info.farm_info.headpic}}"></image></view>
+        </view>
+        <!--中间  -->
+        <view class="shop_info_name">
+          <view class="shop_name">{{farm_info.farm_info.name}}</view>
+             <!--认证是否  -->
+            <block  wx:if="{{farm_info.farm_info.cert == 2}}"><view class="shop_state" ><image src="../img/suyuanye_yirenzheng_ico.png"></image></view></block>
+          <block wx:else><view class="shop_state"><image src="../img/suyuanye_weirenzheng.png"></image></view> </block>
+       
+          <!--直播  -->
+          <block wx:if="{{farm_info.status_info == 1}}" bindtap="jumpLive"><view class="shop_state" style="position:relative"><image src="../img/zhibo.png"></image><image src="../img/dongtu.gif" style="position:absolute;left:160rpx;top:10rpx;width:20rpx;height:20rpx;"></image></view></block>       
+           <!-- <view class="shop_state" style="margin-right:0;"><image src="../img/suyuan/xieliuyan@3x.png"></image></view>            -->
+             
+        </view>
+        <!--关注  -->
+         <view wx:if="{{concerned}}" class="shop_state shop_state2" bindtap='concern'><image src="../img/suyuanye_guanzhu_ico.png" style="width:98rpx;"></image></view>  
+        <!-- <view class="shop_state shop_state2"  wx:if="{{concerned}}" class="shop_state shop_state2" bindtap='concern'>
+          <view class="concerned concern">关注</view>
+        </view> 
+         <view wx:else class="shop_state shop_state2" >
+          <view class="concerned">已关注</view>
+        </view>         -->
+         <view wx:else class="shop_state shop_state2" >
+         <image src="../img/suyuan_yiguanzhu.png"></image>
+        </view>  
+      </view>
+      <!--shop_info_wrap end  -->
+      <view class="cover_img"><image mode='aspectFill' src='{{farm_info.product_info.cover_img}}' alt="此图无法查看" ></image></view>
+     <view class="shop_name2">{{farm_info.product_info.name}}</view>
+      <view class="guige">规格：{{farm_info.product_info.specifications}}</view>
+      <view class="price_wrap">
+        <!-- <view class="price">￥{{farm_info.product_info.price}}</view>        -->
+       <!-- <view class="price">{{farm_info.product_info.price.toString().split(".")[0]}}<text>.00元</text></view>  -->
+       <view>
+         <view class="price" wx:if="{{farm_info.product_info.price}}"><text style="font-size:38rpx;">￥</text>{{pricePre}}<text style="font-size:38rpx;">{{priceAft}}</text></view>
+         <!-- <view class="instant_buy" bindtap='shop'><text>立即购买</text></view> -->
+         <view class="instant_buy" bindtap='shop' wx:if="{{farm_info.is_buy == 1}}"><button>立即购买</button></view>
+         
+       </view>
+     
+      </view>
+      <!--price_wrap end  -->
+  
+  </view>
+</view>
+
+<!--真信网络溯源防伪系统-->
+      <view class="system content_wrap">
+        <view class="content_inner">
+                  <view class="content_wrap_title">真信网络溯源防伪系统</view>
+                  <view class="code_history" style="display:flex;justify-content:space-between;padding:30rpx;">
+                        <view style="display:flex;position:relative;top:14rpx;">
+                          <view style="width:298rpx;height:30rpx;background:#D4DCE0;border-radius:14px;"></view>
+                          <view style="position:absolute;width:{{percent}}px;height:30rpx;background:linear-gradient(90deg,rgba(94,227,157,1) 0%,rgba(34,206,125,1) 100%);border-radius:14px;"></view>
+                        </view>
+                        <view class="code_num">{{farm_info.number}} 次扫码</view>
+                        <view class="history_code" bindtap='code'>扫码记录</view> 
+                         <!-- <progress color="#D4DCE0" active  backgroundColor="rgba(212,220,224);" percent="{{percent}}" stroke-width="12" activeColor="background:linear-gradient(90deg,rgba(94,227,157,1),rgba(34,206,125,1));" style="border-radius:100rpx;overflow:hidden"></progress>
+                        <view class="code_num"><text>{{farm_info.number}}次扫码</text></view>
+                        <view class="history_code" bindtap='code'>扫码记录</view> -->
+                  </view>
+                  <view class="uniq_code"><text>商品唯一编码：</text>{{farm_info.uniqid}}</view>
+                  <!-- <view class="enterance">商品效验入口 ：<text bindtap='check'>点击进行防伪效验</text>   </view> -->
+                 <block wx:if="{{!userphone}}"> <view class="enterance">商品效验入口 ： <button   open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">点击进行防伪效验</button>   </view></block>
+                  <block wx:else> <view class="enterance">商品效验入口 ： <button bindtap='check'>点击进行防伪效验</button>   </view></block>
+
+                  
+                  <!--批次显示或隐藏  -->
+                  <view class="pici">批次 ：2018 1123 00AK LOAK LOAK LOA</view>
+                  <!--扫码记录蒙版  -->
+                  <view class="code_mask"></view>
+        </view>
+        
+      </view>
+      <!--实拍照片  -->
+      <!--   -->
+      <view class="content_wrap" wx:if= "{{farm_info.real_pic.length}}">
+          <view class="content_inner" style="padding-right:0">
+              <view class="content_wrap_title">实景照片</view>
+                <!-- <view class="real_pic">
+                  <block wx:for="{{farm_info.real_pic}}" wx:item = "{{item}}" wx:item = "{{item}}">
+                      <image src="{{item.image}}"></image>
+                  </block>
+                </view>   -->
+
+                <view class="section section_gap">
+                    <scroll-view class="scroll-view_H" scroll-x="true">
+                        <view id="green" class="scroll-view-item_H bc_green" wx:if="{{farm_info.real_pic}}">
+                              <!-- <block wx:for="{{farm_info.real_pic}}" wx:item = "{{item}}"> 
+                                        <image bindtap="imgYu" data-list="{{item.image}}" data-src="{{farm_info.real_pic.image}}" wx:for="{{farm_info.real_pic}}" wx:for-item="farm_info.real_pic" src="{{item.image}}"></image> 
+                              </block> -->
+                          <!--直接对image循环  -->
+                        <image wx:for="{{imgSrc}}" data-list="{{imgSrc}}" data-src="{{item}}" wx:item="{{item}}" wx:key="{{index}}"  src="{{item}}" bindtap="imgYu"></image>
+                        </view>
+                    </scroll-view>
+                </view>
+          </view>
+      </view>
+
+ <!-- 单品追溯 -->
+  <view class="content_wrap" >
+      <view class="content_inner">
+       <view class="content_wrap_title">单品追溯</view>
+        <view class="zhuisu_content">
+        <block wx:for="{{farm_info.unity_info}}" wx:key="{{item}}">
+        <view class="zhuisu_item_wrap">
+         <view style="padding-left:30rpx">
+              <view class="zhuisu_item" style='display:flex'>
+                    <view>人员：</view>
+                    <image src="{{item.account_info.headpic}}"></image> 
+                    <view class="blk">{{item.account_info.nickname}}</view>  
+            </view> 
+            <!--时间  -->
+            <view class="zhuisu_item">
+               <text class="blk">时间：{{item.ctime}}</text>  
+            </view>
+             <!--地点  -->
+           <view class="zhuisu_item">
+               <view>地点：<text class="location" bindtap='jumpMap' data-lon='{{item.lon}}' data-lat='{{item.lat}}' data-address="{{item.location}}">{{item.location}}</text></view>  
+            </view>
+             <!--事件  -->
+            <view class="zhuisu_item">
+               <text class="blk">事件：{{item.caption}}</text>  
+            </view>
+         </view>
+        </view>
+        </block>
+        </view>
+       <!--更多  -->
+           <view class="more" bindtap='more'>
+             <!-- <view class=""> -->
+              <!-- 更多 > -->
+             <!-- </view> -->
+             <image src='../img/more.png'></image> 
+           </view>
+      </view>
+       
+  </view>
+  <!--产品追溯  -->
+<view class="content_wrap" wx:if= "{{product_info[0]}}">
+        <view class="content_inner">
+              <view class="content_wrap_title content_product_title">产品溯源</view>
+                <view class="product_content">
+                      <view class="time">{{product_info[0].ctime}}</view>
+                      <view class="detail">{{product_info[0].text}}</view>
+                      <view class="image"><image src="{{product_info[0].originimg[0].url}}"></image></view>
+                      <view class="pici">批次：{{product_info[0].batchid}}</view>
+                </view>
+        <!--更多  -->
+             <view class="more" bindtap='jump_suyuan'>
+                 <image src='../img/more.png'></image>
+            </view> 
+        </view>
+                
+ </view>
+<!--产品详情  -->
+<view class="content_wrap" wx:if= "{{farm_info.product_detail.length}}">
+      <view class="content_inner">
+          <view class="content_wrap_title content_product_title">产品详情</view>
+          <view class="product_content" wx:for="{{farm_info.product_detail}}" wx:key="{{index}}">
+            <view wx:if="{{item.image}}" class="image_product"><image src="{{item.image}}" mode="widthFix"></image></view>
+            <view wx:if="{{item.video_url}}" class="video_product"><video src="{{item.video_url}}" poster='{{item.cover_url}}'></video></view>
+            <view wx:if="{{item.text}}" style="font-size:32rpx;padding:16rpx;">{{item.text}}</view>
+            <view wx:if="{{item.link}}" style="font-size:32rpx;padding:16rpx;">{{item.caption}}:{{item.link}}</view>
+      </view>
+      </view>    
+</view>
+
+<!-- </block> -->
+
+
+<!-- <block wx:else><view></view></block> -->
+
+
+
+

@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/1/1",
+    
+    "pages/login/login",
+    
+    "pages/home/home",
+    
+    "pages/person/person",
+    "pages/brand/brand",
+    "pages/myconcerned_product/myconcerned_product",
+    "pages/xiadan/xiadan",
+    "pages/shop/shop",
+    "pages/state/longPag/longPag",
+    "pages/brand/productListDetail/productListDetail",
+    "pages/reLogin/reLogin",
+    "pages/restifyWord/restifyWord",
+    "pages/set/set",
+    "pages/myconcerned_code/myconcerned_code",
+    "pages/myshop_list/myshop_list",
+    "pages/state/state",
+    "pages/map/map",
+    "pages/home/product_source/product_source",
+    "pages/address_list/address_list",
+    "pages/modelTest/modelTest",
+    "pages/edit_address/edit_address",
+    "pages/share/share",
+    "pages/myconcerned_content/myconcerned_content",
+    "pages/myconcerned_brand/myconcerned_brand",
+    "pages/single/single",
+    "pages/code_history/code_history",
+    "pages/check/check",
+    "pages/product_detail/product_detail",
+    "pages/template/singleSourceTem/singleSourceTem",
+    "pages/blank/blank"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "pages/img/nav/suyuan_unchecked@3x.png",
+        "selectedIconPath": "pages/img/nav/suyuan_selected@3x.png",
+        "text": "溯源"
+      },
+      {
+        "pagePath": "pages/brand/brand",
+        "iconPath": "pages/img/nav/pinpai_unchecked@3x.png",
+        "selectedIconPath": "pages/img/nav/pinpai_selected@3x.png",
+        "text": "品牌"
+      },
+      {
+        "pagePath": "pages/state/state",
+        "iconPath": "pages/img/nav/dongtai_unchecked@3x.png",
+        "selectedIconPath": "pages/img/nav/dongtai_selected@3x.png",
+        "text": "动态"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "iconPath": "pages/img/nav/wode_unchecked@3x.png",
+        "selectedIconPath": "pages/img/nav/wode_selected@3x.png",
+        "text": "个人"
+      }
+    ]
+  }
+}

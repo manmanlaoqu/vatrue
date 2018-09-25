@@ -1,0 +1,29 @@
+<!--pages/code_history/code_history.wxml-->
+<view class="code_wrap">
+  <block wx:for="{{code_msg}}">
+  <view class="code_history_wrap">
+   <view class="code_history">
+    <view style='display:flex;'>
+      <view>
+        <image src="{{item.headpic}}" class="head_pic" wx:if="{{item.headpic}}"></image>
+        <image src="../img/default_img.png" class="head_pic" wx:else></image>        
+      </view>
+      <view class="head_name" wx:if="{{item.nickname}}">{{item.nickname}}</view>
+      <view class="head_name" wx:if="{{item.ip}}">{{item.ip}}</view>
+    </view>
+    <view class="time_wrap" style=''>
+      <view class="time_year">{{item.add_time}}</view>
+      <!-- <view class="time">07:14</view> -->
+    </view>
+  </view>
+   <!--地理位置  -->
+    <view class="location" wx:if="{{item.location}}">
+        <view class="lo">
+        <image src='../img/saomajilu_ico@3x.png' class="icon"></image>
+      <text>{{item.location}}</text>
+        </view>  
+    </view>
+  </view>
+  </block>
+</view>
+

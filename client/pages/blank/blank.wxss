@@ -1,0 +1,5 @@
+/* pages/blank/blank.wxss */
+view{
+  font-size:32rpx;
+  padding:50rpx 30rpx;
+}

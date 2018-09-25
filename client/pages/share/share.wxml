@@ -1,0 +1,52 @@
+<!--pages/share/share.wxml-->
+<block wx:if="{{shareInfo}}">
+<block wx:for="{{shareInfo}}">
+<view class="content_wrap">
+       <view class="wrap">
+            <view class="psg_wrap" wx:if="{{item.long}}">
+                <image src="{{item.long.cover}}" mode="aspectFill"></image>
+                <view class="psg">文章</view>
+            </view>
+          <view class="content_aa">
+          
+                  <view>
+                  <view class="farm_info">
+                  <view style='display:flex;'>
+                    <view class="headpic"><image src='{{item.farm_headpic}}'></image></view>
+                    <view class="name">{{item.account_info.name}}</view>
+                    <view class="name">{{item.farm_name}}</view>
+                  </view>
+                      <view class="time">{{item.fen_time}}</view>
+                  </view>
+              </view> 
+            <!--文章  -->
+            
+            <!-- 图文动态 -->
+            <view wx:if="{{item.long}}">
+                <view class="content_psg" style='border-top: 1rpx solid rgba(231,237,239,1);'>{{item.long.title}}</view>
+            </view>
+            <view class="pic_content" wx:if="{{item.images[0].image}}">
+                    <view class="pic_psg">{{item.content}}</view>
+                    <view><image src="{{item.images[0].image}}"></image></view>
+            </view> 
+            
+            <view class="pic_content" wx:elif="{{item.videos[0].video_url}}">
+                <view class="pic_psg">{{item.content}}</view>
+                <view><video src="{{item.videos[0].video_url}}" poster='{{item.videos[0].cover_url}}'></video></view>
+            </view> 
+            <view class="title" wx:if="{{item.images[0].image}}">图文动态</view>
+            <view class="title" wx:elif="{{item.videos[0].video_url}}">图文动态</view>
+          </view>
+        </view>
+  </view>
+</block>
+  <view>
+        <view class="more" bindtap='more' style="display:{{more?'block':'none'}}" ><image src="../img/loadmore.png" ></image></view>   
+        <view class="more" style="display:{{more?'none':'block'}}">没有更多了</view>  
+  </view>
+</block>
+<block wx:else><view></view></block>
+
+
+    
+

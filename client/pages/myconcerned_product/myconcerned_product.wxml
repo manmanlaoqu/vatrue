@@ -1,0 +1,44 @@
+  <!-- <view style="display:{{noPsg?'block':'none'}}">您还没有关注的产品</view> -->
+  <block wx:if="{{isNot != 0}}">
+  <view style="padding-bottom:40rpx;" wx:if="{{concernedInfo}}"> 
+      <block wx:for="{{concernedInfo}}">       
+              <view class="shop_list" data-id="{{item.id}}" bindtap='jumpProduct'>
+                <view class="shop_content">
+                <!--商品名称  -->
+                    <view class="good">
+                          <view class="good_name" style="display:flex;justify-content:space-between">
+                            <view style="display:flex;">
+                                <view class="us_img">
+                                  <image src="{{item.farm_headpic}}"></image>
+                                </view>
+                              <view class="user_name">{{item.farm_name}}</view>
+                            </view>
+                              <view class="order_info" style="color:rgba(134,144,163,1);margin-top:6rpx;">{{item.time}}</view>
+                          </view>
+                          <!--商品详情  -->
+                          <view class="good_detail">
+                              <view> <image src="{{item.image}}"></image></view>
+                            <view class="good_description">
+                                <view class="good_content">
+                                    <view class="detail_area">{{item.name}}</view>
+                                    <block>
+                                        <!-- <view class="detail_num" wx:if="{{item.price[0]}}">暂无价格</view> -->
+                                        <view class="detail_num" wx:if="{{item.price[2]}}">{{item.price[0]}}<text class="pricetext">.{{item.price[1]}}.{{item.price[2]}}元</text></view>
+                                       <view class="detail_num" wx:elif="{{item.price[1]}}">{{item.price[0]}}<text  class="pricetext">.{{item.price[1]}}元</text></view>
+                                    </block>
+                                    <!-- <view class="detail_num">{{item.price}}元</view> -->
+                                  </view>
+                            </view>
+                          </view>
+                    </view>
+                </view>
+            </view>
+      </block> 
+      <view>
+          <view class="more" bindtap='more' style="display:{{more?'block':'none'}}" ><image src="../img/loadmore.png" ></image></view>   
+          <view class="more" style="display:{{more?'none':'block'}}">没有更多了</view>  
+      </view>
+  </view>
+  </block>
+  <block wx:else><view></view></block>
+

@@ -1,0 +1,109 @@
+<!--pages/brand/brand.wxml-->
+
+<!-- <block wx:if="{{brandInfo}}"> -->
+
+<block wx:if="{{brandInfo.cert == 2}}"><image src="../img/renzheng.png" class="pinpai_img"></image></block>
+<block wx:else><image src="../img/pinpai_ico_weirenzheng.png" class="pinpai_img"></image></block>
+<view class="brand_wrap">
+  <!--头部信息  -->
+  <view class="brand"> 
+      <!--头部  -->
+      <view class="brand_head">
+        <view class="head_pic"><image src="{{brandInfo.headpic}}"></image></view>
+        <view class="head_con">
+            <view class="head_name">{{brandInfo.name}}</view>
+            <view class="head_detail">
+               {{brandInfo.short_introduce}}
+            </view>
+        </view>
+      </view> 
+        <!--  -->
+        <view>
+            <view class="pic_img" style="position:relative">
+                <!-- <image src="../img/suyuan/weirenzheng.png"></image> -->
+                <block wx:if="{{brandInfo.cert == 2}}"><image src="../img/pinpaiye_yirenzheng.png"></image></block>  
+                 <block wx:else><image src="../img/pinpai_weirenzheng.png"></image></block>           
+               <block wx:if="{{brandInfo.status_info == 1}}"><image src="../img/suyuan_zhibozhong.png" class="img_t"></image><image src="../img/dongtu.gif" class="dongzhi" style="position:absolute;left:295rpx;width:20rpx;height:20rpx;top:16rpx"></image></block>
+            </view>
+            <view class="add_img" wx:if="{{brandInfo.address}}" bindtap="jumpMap"><image src="../img/pinpai_weizhi_ico.png"></image><text>{{brandInfo.address}}</text></view>
+            <view class="connect_wrap">
+              <view class="connect">
+
+              <!--关注  -->
+                 <block wx:if="{{concerned}}"><view  class="guanzhu" bindtap='concern'><image src="../img/pinpai_weiguanzhu.png" ></image></view></block> 
+        <block wx:else><view class="guanzhu"><image src="../img/pinpai_yiguanzhu.png"></image></view></block> 
+                     <!-- <view class="guanzhu"><image src="../img/pinpai_weiguanzhu.png"></image></view>  -->
+                    
+                    <view bindtap="connect_tel" wx:if="{{brandInfo.custormer_service}}"><image src="../img/pinpai_dianhualiao.png"></image></view>
+                    
+
+                    <view><image src="../img/pinpai_xiaoxiliao.png"></image></view>
+     
+              </view>
+               
+            </view>
+        </view> 
+        <!--  -->
+        
+  </view>
+
+
+  <!--选项卡  -->
+  <!-- class="{{appear?'fixed':''}}" -->
+  <view style="padding:0 30rpx" >
+      <view class="topTabSwiper">
+        <view class="tab1 {{currentData == 0 ? 'tabBorer' : '' }}" data-current = "0" bindtap='checkCurrent'>品牌介绍<view class="{{currentData == 0 ? 'border' : '' }}"></view> </view>
+        <view class="tab1 {{currentData == 1 ? 'tabBorer' : '' }}" data-current = "1" bindtap='checkCurrent'>产品列表<view class="{{currentData == 1 ? 'border' : '' }}"></view> </view>    
+      </view>
+    
+  </view>
+  
+<!--current属性为下标  -->
+<view>
+<view current="{{currentData}}" class="swiper" duration='300' bindchange="bindchange" >
+<!--品牌介绍  -->
+  <view style="position:absolute;width:100%" class="{{currentData == 1 ? 'cang' : '' }}">
+      <view class='swiper_con'>
+            <!--品牌介绍  -->
+            <block wx:for="{{brandInfo.img}}" wx:key="{{item}}">
+                <view class="brand_contents">
+                   <!-- //文字描述 -->
+                    <view wx:if="{{item.text}}" style="font-size:32rpx"><rich-text nodes="{{item.text}}"></rich-text></view> 
+                   <!-- <view wx:if="{{item.text}}" style="font-size:32rpx">{{item.text}}</view> -->
+                   <!-- //图片或视频 -->
+                   <view wx:if="{{item.image}}"><image src="{{item.image}}" mode="widthFix"></image></view>
+                   <view wx:if="{{item.video_url}}"><video src="{{item.video_url}}" poster='{{item.cover_url}}'></video></view>
+                    <!-- <view wx:if="{{item.link}}"><web-view src="{{item.link}}"></web-view></view>  -->
+                </view>
+            </block>
+      </view>
+  </view>
+  <!--产品列表  -->
+   <view  style="position:absolute;width:100%" class="{{currentData == 0 ? 'cang' : '' }}" > 
+    <view class='swiper_con'>
+           <view class="product_list">
+          <block wx:for = "{{product_list}}" wx:key="{{key}}">
+               <view class="product_detail" bindtap='product_detail' bindtap='jumpDetail' data-index="{{index}}">
+                    <view wx:if="{{item.specData[0].image}}" class="pic_pro"><image src='{{item.specData[0].image}}' mode="{{aspectFill}}"></image></view>
+                    <view wx:else class="pic_pro"><image src='../img/product_default.png'></image></view>
+                    <view class="detail">
+                        <view class="detail_one">{{item.name}}</view>
+                         <view class="detail_t" wx:if="{{item.specData[0].price == 0 || item.specData[0].price == ''}}" style="margin-top:20rpx;font-size:30rpx;color:gray">暂无标价</view> 
+                          <view class="detail_two" wx:elif="{{item.specData[0].price_interval[2]}}">
+                          {{item.specData[0].price_interval[0]}}<text class="price_text">.{{item.specData[0].price_interval[1]}}.{{item.specData[0].price_interval[2]}}元</text></view> 
+                         <view class="detail_two" wx:else>{{item.specData[0].price_interval[0]}}<text class="price_text">.{{item.specData[0].price_interval[1]}}元</text></view> 
+                    </view>
+               </view>
+          </block>
+
+          <view bindtap='requestData' class="{{more?'xianshi':'yincang'}}" class="loadMore" ><image src="../img/loadmore.png" class="{{more?'xianshi':'yincang'}}"></image></view>
+         <view class="nomore {{more?'yincang':'xianshi'}} ">没有更多了</view>  
+        </view>
+    </view>
+  </view>   
+</view> 
+</view>
+</view>
+<!-- </block> -->
+<!--如果没有数据  -->
+<!-- <block wx:else><view></view></block> -->

@@ -1,0 +1,10 @@
+<!--pages/login/login.wxml-->
+
+<view wx:if="{{show}}" class="login_wrap">
+  <view class="login">
+     <view class="one">登录并授权</view>
+    <view class="two">申请获取以下权限</view>
+    <view class="two">获得你的公开信息(昵称，头像)</view>
+   <button type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo" style='color:#00CD00;font-weight:500;background:#eee'>允许</button> 
+  </view>
+</view>

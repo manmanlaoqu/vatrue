@@ -1,0 +1,101 @@
+ <import src="../template/myshopList/myshopList.wxml" />
+ <!-- <import src="item.wxml"/> -->
+ <!-- data="{{text: 'forbar'}}" -->
+ <!-- <template is="myshopList" />  -->
+ <!-- <view>
+      <template is="myshopList"  data="{{text:'待确认',cancelmsg:true}}"/>
+ </view> -->
+ <block wx:for="{{orderData}}">
+ <view class="shop_list">
+    <view class="shop_content">
+    <!--商品名称  -->
+        <view class="good">
+              <view class="good_name" style="display:flex;justify-content:space-between">
+                 <view style="display:flex;">
+                     <view class="us_img">
+                      <image src="{{item.farm_image_url}}"></image>
+                    </view>
+                  <view class="user_name">{{item.farm_name}}</view>
+                 </view>
+                  <view class="order_info" wx:if="{{item.order_status == 1}}">待付款</view>
+                   <view class="order_info" wx:elif="{{item.order_status == 2}}">待发货</view>
+                  <view class="order_info" wx:elif="{{item.order_status == 3}}">已发货</view>
+                  <view class="order_info" wx:elif="{{item.order_status == 4}}">待确认</view>
+                  <view class="order_info" wx:elif="{{8}}">已完成</view>
+                  <view class="order_info" wx:elif="{{4}}">待商家确认</view>
+                  <view class="order_info" wx:elif="{{3}}">商家已取消</view>
+                  <view class="order_info" wx:elif="{{9}}">售后中</view>
+                  <view class="order_info" wx:elif="{{}}">商家同意退款</view>
+                  <view class="order_info" wx:elif="{{}}">售后完成</view>
+              </view>
+              <!--商品详情  -->
+              <view class="good_detail">
+                  <view style="width:200rpx;height:200rpx;"> <image src="{{item.basket.group[0].product_image}}" mode='aspectFill'></image></view>
+                 <view class="good_description">
+                   <view class="fle">
+                      <view class="good_content">
+                        <view class="detail_area">{{item.basket.group[0].name}}</view>
+                        <view class="detail_num">规格：{{item.basket.group[0].specifications}}</view>
+                      </view>
+                   </view>
+                 </view>
+              </view>
+              <!--价格  -->
+              <view class="price_good">
+                  <view style="margin-top:10rpx;">共1件商品</view>
+                  <view class="total_si">合计：<text class="price_num">{{item.basket.group[0].price}}</text><text class="unit">元</text></view>
+              </view>
+              <!--如果是1待确认  -->
+              <!-- <block wx:if="{{item.shipping_status == 1}}"><view class="order_button" >
+                    <button type="primary" class="buy_again" style="margin-left:60rpx;background:#23CF7D;">再次购买</button>
+              
+                    <button type="" class="cancel_button" style="background:rgba(232,238,242,1)">取消订单</button>
+              </view></block> -->
+              <!-- 2 已完成  -->
+              <!-- <view class="flex">
+                <button  style="background:rgba(232,238,242,1)">申请售后</button>
+                <button style="background:rgba(232,238,242,1)">评价</button>
+                <button style="background:#23CF7D;color:#fff">再次购买</button>
+              </view> -->
+            <!--3待发货  -->
+               <!-- <view class="flex">
+                <button  style="background:rgba(232,238,242,1)">取消订单</button>
+              </view>  -->
+              <!--4已发货  -->
+              <!-- <view class="flex">
+               <button style="background:#23CF7D;color:#fff">确认收货</button>
+              </view>   -->
+              <!-- 5确认收货 -->
+              <!-- <view class="flex">
+                <button  style="background:rgba(232,238,242,1)">取消订单</button>
+              </view>  -->
+              <!--6商家已取消  -->
+               <!-- <view class="order_button" >
+                    <button type="primary" class="buy_again" style="margin-left:60rpx;background:#23CF7D;">再次购买</button>
+              
+                    <button type="" class="cancel_button" style="background:rgba(232,238,242,1)">取消订单</button>
+              </view>   -->
+              <!--7售后中  -->
+               <!-- <view class="flex">
+                <button  style="background:rgba(232,238,242,1)">取消售后</button>
+              </view>  -->
+              <!--8商家同意退款  -->
+               <!-- <view class="flex">
+                <button  style="background:rgba(232,238,242,1)">取消订单</button>
+              </view>  -->
+              <!-- 9售后完成  -->
+                   <!-- <view class="order_button" >
+                    <button type="primary" class="buy_again" style="margin-left:60rpx;background:#23CF7D;">再次购买</button>
+              
+                    <button type="" class="cancel_button" style="background:rgba(232,238,242,1)">取消订单</button>
+              </view>   -->
+              <!--10待付款  -->
+                  <view class="order_button"  v-if="{{item.order_status == 1}}">
+                    <button type="primary" class="buy_again" style="margin-left:60rpx;background:#23CF7D;">立即支付</button>
+              
+                    <button type="" class="cancel_button" style="background:rgba(232,238,242,1)">取消订单</button>
+              </view>   
+        </view>
+    </view>
+</view>
+</block>

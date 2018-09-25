@@ -1,0 +1,57 @@
+<!--modelTest.wxml-->
+<!-- <import src="../../model/model.wxml"/> -->
+  <form  bindsubmit='formSubmit'>
+      <view style="display:flex" class='addressInfo'><view class="lineHeight">收货人姓名：</view><view><input placeholder='请输入收货人姓名' placeholder-style="font-size:28rpx" placeholder-class="phcolor" name="name" value='{{addressinfo.consignee}}'></input></view></view>
+      <view style="display:flex" class='addressInfo'><view class="lineHeight">收货人手机号：</view><input placeholder='请输入收货人手机号'  placeholder-class="phcolor" name="tel" value="{{addressinfo.phone}}"></input> </view>
+      <!-- <view style="display:flex" class='addressInfo' bindtap="translate">选择收获区域：<input placeholder='请选择收获区域'   value=""></input><view>></view></view> -->
+       <view style="display:flex;justify-content:space-between;" class='addressInfo' bindtap="translate"><view>选择收获区域：<text style="color:rgba(176,184,192,1);font-size:28rpx;">{{choose}}</text></view><view class="arrow">></view></view>
+      <view style="display:flex" class='addressInfo'><view class="lineHeight">输入详细地址：</view><input placeholder='请输入详细地址精确到门牌号' placeholder-class="phcolor" name="address_detail" value="{{addressinfo.address_info}}"></input> </view>
+      <button type="primary" style="background: #28c260;" form-type='submit'>确定</button>
+  </form> 
+<!-- <view class="infoText">{{province}} {{city}} {{county}}</view> - ->
+<!-- <button class="animation-button" bindtap="translate">选择城市</button> -->
+<!-- 选择城市:<input bindtap="translate"></input> -->
+<!-- <template is="areaData" data="{{...item}}"/> -->
+
+
+
+ <view class="animation-element-wrapper" animation="{{animation}}" style="visibility:{{show ? 'visible':'hidden'}}" bindtap="hiddenFloatView" data-id="444">
+     <view class="animation-element" catchtap="nono">
+        <text class="left-bt" catchtap="hiddenFloatView" data-id="555">取消</text>
+         <!-- <text class="right-bt" catchtap="hiddenFloatView" data-id="666" bindtap='finish'>完成</text>  -->
+         <text class="right-bt"  data-id="666" bindtap='finish'>完成</text> 
+        
+          <!-- <view class="line"></view>  -->
+        
+        <view class="address_title">
+            <view class="add_choose">
+                 <view class="aa"> {{choosePro}}</view> 
+                 <view class="aa"> {{chooseCity}}</view> 
+                 <view class="aa"> {{chooseArea}}</view>
+            </view>
+        </view>
+        <picker-view indicator-style = "height:50rpx;" value="{{value}}" bindchange="bindChange" catchtap="nono">
+        <!--省-->
+        <!-- <view>请选择省</view> -->
+        <picker-view-column>
+         <!-- <view>请选择省</view>  -->
+           <!-- <view wx:for="{{provinces}}" wx:for-item="sheng" wx:key="" bindtap='sheng' data-id="{{index}}" data-name="{{sheng.name}}"> -->
+           <view wx:for="{{provinces}}" wx:for-item="sheng" wx:key="" bindtap='sheng' data-id="{{sheng.id}}" data-name="{{sheng.name}}">
+             {{sheng.name}}
+          </view>
+        </picker-view-column>
+        <picker-view-column>
+         <!-- <view>请选择市</view>  -->
+           <view wx:for="{{citys}}" wx:for-item="shi" wx:key="" bindtap='shi' data-id="{{shi.id}}" data-name="{{shi.name}}">
+              {{shi.name}} 
+          </view>
+        </picker-view-column>
+        <picker-view-column>
+         <!-- <view>请选择区</view>  -->
+           <view wx:for="{{countys}}" wx:for-item="eng" wx:key="" bindtap="area" data-name="{{eng.name}}" data-id="{{eng.id}}">
+             {{eng.name}}
+          </view>
+        </picker-view-column>
+        </picker-view>
+    </view>
+  </view>

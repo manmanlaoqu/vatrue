@@ -1,0 +1,50 @@
+<!--pages/address_list/address_list.wxml-->
+<!--默认地址  -->
+<view wx:if="{{addressInfo == ''}}">
+    <view class="no_img"><image src='../img/shouhuodizhi_kongzhuangtai.png'></image></view>
+    <view class="title">您还没有收货地址，快添加吧！</view>
+ </view>
+
+<view style="padding-bottom:150rpx;">
+    <block wx:for="{{addressInfo}}" wx:key="{{index}}"  wx:if="{{item.is_default == 1}}">
+      <view class="address_wrap"    data-id="{{item.id}}" >
+          <view class="flex info">
+            <view class="flex"  bindtap='jumpAddress'>
+              <view class="name">{{item.consignee}}</view>
+              <view class="tel">{{item.phone}}</view>
+              <view class="moren"><image src="../img/dizhi_moren.png"></image></view>
+            </view>
+            <view class="flex">
+              <view class="delete text" bindtap='delate' data-id="{{item.id}}"><image src="../img/dizhi_shanchu.png"></image> 删除         </view>
+              <view class="edit text" bindtap="edit" data-id="{{item.id}}"><image src="../img/dizhi_bianji.png"></image> 编辑</view>
+            </view>
+          </view>
+          <view class="detail_address"  bindtap='jumpAddress'>{{item.province_name}} {{item.city_name}} {{item.region_name}}</view>
+          <view class="wrapA">
+            <view class="circle"><view class="chosed"></view></view>
+            <view class="modi">默认地址</view>
+          </view>
+      </view>
+</block>
+<!--非默认地址  -->
+<block wx:for="{{addressInfo}}" wx:key="{{item.index}}" wx:if="{{item.is_default == 0}}" >
+<view class="address_wrap" data-id="{{item.id}}">
+    <view class="flex info">
+      <view class="flex"  bindtap='jumpAddress'>
+         <view class="name">{{item.consignee}}</view>
+         <view class="tel">{{item.phone}}</view>
+      </view>
+      <view class="flex">
+        <view class="delete text" bindtap='delate'  data-id="{{item.id}}"><image src="../img/dizhi_shanchu.png"></image> 删除</view>
+        <view class="edit text" bindtap="edit"  data-id="{{item.id}}"><image src="../img/dizhi_bianji.png"></image> 编辑</view>
+      </view>
+    </view>
+    <view class="detail_address"  bindtap='jumpAddress' data-id="{{item.id}}">{{item.province_name}} {{item.city_name}} {{item.region_name}} {{item.address_info}} </view>
+    <view class="wrapA" bindtap='xuanzhong' data-id="{{item.id}}">
+      <view class="circle"></view>
+      <view class="modi">默认地址</view>
+    </view>
+</view>
+</block>
+</view>
+<view class="button_wrap"><button bindtap="add_address">新增地址</button></view>

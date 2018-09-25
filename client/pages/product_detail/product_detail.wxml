@@ -1,0 +1,10 @@
+<!--pages/product_detail/product_detail.wxml-->
+<!--产品列表详情  -->
+<view class="product_detail">
+   <view class="product_detail_head">
+       <view class="head_pic"><image src='../img/1.png'></image>头像</view>
+       <view class="product_pic"><image src="../img/1.png" mode='aspectFit'></image></view>
+       <view class="product_name">产品名字</view>
+       <view class="product_price">价格</view>
+   </view>  
+</view>

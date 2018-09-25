@@ -1,0 +1,44 @@
+<!--pages/single/single.wxml-->
+
+<!-- <view class='box'>
+
+
+    <view wx:for="{{list}}" data-id="{{index}}" wx:key="{{index}}" style="height:{{(height/6)-1}}px;width:100%;text-align:center;line-height:{{(height/6)-1}}px; border-bottom:1px solid #ccc">{{item.ctime}}</view>
+    <view bindtap='lower' class="{{more?'xianshi':'yincang'}}" >加载更多</view>
+    <view class="{{more?'yincang':'xianshi'}}">没有更多了</view> 
+</view> -->
+<view class="wrap">
+  <!-- 单品追溯 -->
+  <view class="content_wrap">
+        <view class="content_wrap_title">单品追溯</view>
+        <view class="zhuisu_content">
+                <block wx:for="{{list}}" wx:key="{{index}}" wx:index="{{index}}" wx:item="{{index}}" style="height:{{(height/6)-1}}px;width:100%;text-align:center;line-height:{{(height/6)-1}}px; border-bottom:1px solid #ccc">
+                        <view class="zhuisu_item_wrap">
+                        <view class="zhuisu_item" style='display:flex'>
+                            <view>人员：</view>
+                            <image src="{{item.account_info.headpic}}"></image> 
+                            <view class="blk">{{item.account_info.nickname}}</view>  
+                        </view> 
+                        <!--时间  -->
+                        <view class="zhuisu_item">
+                            <view>时间：<text class="blk">{{item.ctime}}</text> </view>  
+                        </view>
+                        <!--地点  -->
+                        <view class="zhuisu_item">
+                              <view>地点：<text class="location" bindtap='jumpMap' data-lon='{{item.lon}}' data-lat='{{item.lat}}' data-address="{{item.location}}">{{item.location}}</text></view>  
+                        </view>
+                        <!--事件  -->
+                       <view class="zhuisu_item">
+                            <view>事件：<text class="blk">{{item.caption}}</text></view>  
+                        </view>
+                    </view>     
+                </block>
+    </view>
+         <view bindtap='lower' class="{{more?'xianshi':'yincang'}}" class="loadMore" ><image src="../img/loadmore.png"  class="{{more?'xianshi':'yincang'}}"></image></view>
+         <view class="nomore {{more?'yincang':'xianshi'}} ">没有更多了</view>   
+   </view> 
+ </view> 
+
+
+ 
+        

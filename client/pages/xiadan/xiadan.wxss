@@ -1,0 +1,47 @@
+/* pages/xiadan/xiadan.wxss */
+page{
+    background:#F1F4F9;
+    padding-top:30rpx;
+}
+.order{
+  background:#fff;
+  width:670rpx;
+  height:230rpx;
+  margin:0 auto;
+  
+}
+.order image{
+  width:50rpx;
+  height:50rpx;
+  margin-right:10rpx;
+}
+.order .order_s{
+  font-size:30rpx;
+
+}
+.order_success{
+  display: flex;
+  width:260rpx;
+  margin:0 auto;
+  padding-top:30rpx;
+}
+.price{
+  display: flex;
+  justify-content: space-between;
+  margin:30rpx;
+  padding-top:30rpx;
+  border-top:1rpx solid #eee;
+ font-size:32rpx;
+}
+.money{
+  color:#feb76c;
+  font-size:28rpx;
+}
+button{
+  margin-top:50rpx;
+  width:560rpx;
+  background:#16c25c;
+  color:#fff;
+  font-size:32rpx;
+  border-radius: 15rpx;
+}

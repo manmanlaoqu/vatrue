@@ -1,0 +1,60 @@
+{
+	"miniprogramRoot": "./client",
+	"qcloudRoot": "./server",
+	"setting": {
+		"newFeature": true
+	},
+	"appid": "wx7b2b694b78617be0",
+	"projectname": "weChat_su_node",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "参数",
+					"pathName": "pages/login/login",
+					"query": "id=BQ00AKM4P7YFW4379H",
+					"scene": "1011"
+				},
+				{
+					"id": 1,
+					"name": "1037: 从小程序进入",
+					"pathName": "pages/login/login",
+					"query": "id=BQ0DCB7AC04B5A3248",
+					"scene": "1037",
+					"referrerInfo": {
+						"appId": "wx7b2b694b78617be0",
+						"extraData": "{}"
+					}
+				},
+				{
+					"id": 2,
+					"name": "1037: 从小程序返回",
+					"pathName": "pages/home/home",
+					"query": "id=BQ0DCB7AC04B5A3248",
+					"scene": "1038",
+					"referrerInfo": {
+						"appId": "wx7b2b694b78617be0",
+						"extraData": "{}"
+					}
+				}
+			]
+		}
+	}
+}

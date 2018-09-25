@@ -1,0 +1,256 @@
+/* pages/brand/productListDetail/productListDetail.wxss */
+.headpic image{
+  width:100rpx;
+  height:100rpx;
+  border-radius:100rpx;
+}
+.brand_de{
+  padding:16rpx 0;
+  display: flex;
+}
+.header_wrap{
+  padding:24rpx 30rpx;
+  border-bottom:24rpx solid rgba(241,244,249,1);
+ 
+}
+.header_wrap image{
+  width:690rpx;
+height:350rpx;
+}
+.proInfo_name{
+  font-size:32rpx;
+font-family:PingFangSC-Medium;
+font-weight:500;
+color:rgba(6,25,39,1);
+margin:24rpx 0 16rpx;
+}
+.proInfo_noprice{
+  font-size:32rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(114,123,134,1);
+}
+.proInfo_price{
+font-size:32rpx;
+font-family:PingFangSC-Regular;
+font-weight:400;
+color:rgba(114,123,134,1);
+}
+.proInfo_price text{
+  font-size:40rpx;
+font-family:PingFangSC-Medium;
+font-weight:500;
+color:rgba(255,119,32,1);
+}
+.size{
+  border-bottom:24rpx solid rgba(241,244,249,1);
+  padding:24rpx 0 24rpx 30rpx;
+}
+.size:last-child{
+  border:none;
+  margin-bottom:158rpx;
+}
+.size_title{
+  padding-bottom:24rpx;
+  border-bottom:1rpx solid rgba(237,239,244,1);
+  font-size:32rpx;
+font-family:PingFangSC-Medium;
+font-weight:500;
+color:rgba(37,41,51,1);
+}
+/* background:rgba(38,210,143,1); */
+
+.specData{
+  display:inline-block;
+  /* height:60px; */
+background:rgba(241,244,249,1);
+border-radius:30px;
+/* padding:6rpx 25rpx; */
+ padding:10rpx 30rpx; 
+margin-right:24rpx;
+margin-top:30rpx;
+font-size:24rpx;
+}
+.fixBottom{
+  z-index: 1000;
+  position: fixed;
+  bottom:0;
+}
+.chat{
+  width:450rpx;
+  height:98rpx;
+background:rgba(255,255,255,1);
+}
+.chat image{
+  width:54rpx;
+  height:54rpx;
+  padding:22rpx 0;
+  margin-left:80rpx;
+  cursor: pointer;
+}
+.fixBottom button{
+   width:302rpx;
+   height:98rpx;
+   line-height: 98rpx;
+    border-radius: 0;
+    background:#23CF7D;
+}
+ button::after{
+  border:none;
+} 
+.spec{
+  display:inline-block;
+background:rgba(241,244,249,1);
+ padding:10rpx 30rpx; 
+/* padding:6rpx 25rpx; */
+margin-right:24rpx;
+margin-top:30rpx;
+font-size:24rpx;
+  color:#fff;
+  background:rgba(38,210,143,1);
+border-radius:30rpx;
+}
+.video_product video{
+ width:100%;
+}
+
+
+.scroll-view_H{
+  width: 100%;
+  white-space: nowrap;
+}
+.scroll-view-item_H{
+  width: 180rpx;
+  height: 180rpx;
+  display: inline-block;
+  margin-right:16rpx;
+}
+.scroll-view-item_H image{
+  width:100%;
+  height:100%;
+  margin-right:16rpx;
+}
+.more{
+  width:280rpx;
+height:70rpx;
+background:rgba(232,236,241,1);
+border-radius:41rpx;
+}
+
+
+/* pages/home/product_source/product_source.wxss  */
+
+.content_wrap_title {
+  padding-top: 20rpx;
+}
+
+.time .dot {
+  display: inline-block;
+  width: 19rpx;
+  height: 19rpx;
+  background: rgba(17, 179, 102, 1);
+  border-radius: 9rpx;
+  margin-right: 21rpx;
+  margin-left: -5rpx;
+}
+
+.content_item {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(70, 79, 86, 1);
+  line-height: 45rpx;
+  padding: 16rpx 0;
+}
+
+.content_product {
+  margin-bottom: 16rpx;
+  padding-left: 30rpx;
+}
+
+.pic_one {
+  height: 365rpx;
+  /* width: 100%; */
+  width:650rpx;
+}
+
+.pic_two {
+  /* width: 322rpx; */
+   width:317rpx;  height:237rpx; 
+  /* height: 244rpx; */
+}
+
+.pic_two:first-child {
+   margin-right:16rpx; 
+  /* margin-right: 20rpx; */
+}
+
+.pic_three {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pic_three image {
+   /* width: 210rpx;
+  height: 210rpx;  */
+    width:206rpx;  height:206rpx;  
+   margin-right: 16rpx; 
+}
+
+.pic_three image:nth-child(3n+3) {
+  margin-right: 0rpx;
+}
+
+.pic_three image:nth-child(4) {
+  margin: 16rpx 0;
+}
+
+.pic_three image:nth-child(5) {
+   margin: 16rpx 16rpx; 
+}
+
+.pic_three image:nth-child(6) {
+  margin: 16rpx 0;
+}
+
+.time {
+  color: #11b366;
+}
+
+.nomore {
+  padding: 40rpx 0;
+  text-align: center;
+}
+
+.pici {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  color: rgba(103, 116, 126, 1);
+  padding: 16rpx 0;
+}
+
+
+.time_item{
+  margin-left:8rpx;
+  font-size:28rpx;
+}
+.size_title{
+  margin-bottom:20rpx;
+}
+.time{
+  display:flex;
+}
+.time .dot {
+  position: relative;
+  left:-3rpx;
+  top:8rpx;
+  /* margin-top:6rpx; */
+  display: inline-block;
+  width: 19rpx;
+  height: 19rpx;
+  background: rgba(17, 179, 102, 1);
+  border-radius: 9rpx;
+  /* margin-right: 21rpx; */
+  /* margin-left: -5rpx; */
+}
+
+

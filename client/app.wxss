@@ -1,0 +1,32 @@
+/**app.wxss**/
+ /* body{
+  padding:0;
+  margin:0;
+} */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+.wrap{
+  padding:0 30rpx;
+}
+.wrap_content{
+ width:100%;
+}
+.content_wrap_title{
+  font-weight: bold;
+  height:56rpx;
+  font-size:40rpx;
+  font-family:PingFangSC-Medium;
+  color:rgba(6,25,39,1);
+  line-height:56rpx;
+  margin-bottom:24rpx;
+} 
+button::after{
+  border:none;
+}
+button{
+  border-radius: 0;
+}

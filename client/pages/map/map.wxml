@@ -1,0 +1,13 @@
+<!--pages/map/map.wxml-->
+<view class="page-body">
+  <view class="page-section page-section-gap">
+     <map id="myMap" style="width: 100%; height:1208rpx" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" covers="{{covers}}" show-location></map> 
+  </view>
+  <view class="location">
+    <view class="location_d">
+      <image src="../img/ico3.png"></image>
+      <text>{{address}}</text>
+    </view>
+  
+  </view>
+</view>
