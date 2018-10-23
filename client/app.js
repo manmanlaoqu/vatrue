@@ -53,7 +53,7 @@ App({
      
     },
     globalData: {
-      baseUrl:"https://webapp.farmtruth.cn/test/index.php/small/",
+      baseUrl:"",
       qrCode:'',
       // openid: 0,
     },
